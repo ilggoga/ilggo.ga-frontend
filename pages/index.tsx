@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import { Alert, Container } from 'react-bootstrap'
-import NovelTable from '../components/NovelTable'
+import NovelStats from '../components/NovelStats'
 import { NovelStruct } from '../types/index'
 
 interface Props {
@@ -10,18 +10,10 @@ interface Props {
 }
 
 export default function Home({ novels, success, error }: Props) {
-  const novelUploadStatus =
-    !success
-      ? <Alert variant="danger">소설 목록을 불러오지 못했습니다.<br /><code>{error}</code></Alert>
-      : (
-        <div>
-          <h4>최근 업로드된 소설 목록:</h4>
-          <NovelTable novels={novels.sort((a, b) => b.ID - a.ID).slice(0, 10)}></NovelTable>
-
-          <h4>인기 소설 목록:</h4>
-          <NovelTable novels={novels.sort((a, b) => b.Likes.split(',').length - a.Likes.split(',').length)}></NovelTable>
-        </div>
-      )
+  const novelStats =
+    success
+      ? <NovelStats novels={novels} />
+      : <Alert variant="danger">소설 목록을 불러오지 못했습니다.<br /><code>{error}</code></Alert> 
 
   return (
     <div>
@@ -35,13 +27,13 @@ export default function Home({ novels, success, error }: Props) {
           읽고가 프로토타입입니다 <code>/pages/</code>에서 수정을 시작하세요
         </Alert>
 
-        {novelUploadStatus}
+        {novelStats}
       </Container>
     </div>
   )
 }
 
-export async function getStaticProps()  {
+export async function getServerSideProps()  {
   const { code, success, data: novels, message } = await fetch('http://localhost:8080/novels').then((res) => res.json())
 
   return {
