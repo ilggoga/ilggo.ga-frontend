@@ -1,6 +1,7 @@
 import { NovelStruct } from '../types/index'
 import { Converter } from 'showdown'
 import moment from 'moment'
+import { escapeHtml } from '../utils'
 
 interface Props {
   novel: NovelStruct
@@ -22,6 +23,11 @@ export default function NovelViewer ({ novel }: Props) {
     ghMentionsLink: '/user/{u}',
     simpleLineBreaks: true
   })
+
+  const flags = novel.Flags.split(',')
+  if (!flags.includes('xss')) {
+    novel.Content = escapeHtml(novel.Content)
+  }
 
   return (
     <div>

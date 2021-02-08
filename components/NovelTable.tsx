@@ -1,3 +1,5 @@
+import Link from 'next/link'
+import { useRouter } from 'next/router'
 import { Table } from "react-bootstrap"
 import { NovelStruct } from "../types"
 
@@ -18,10 +20,10 @@ export default function NovelTable ({ novels }: Props) {
       </thead>
       <tbody>
         { novels.map((novel) => (
-          <tr>
+          <tr className="novel-table-row">
             <td>{novel.ID}</td>
-            <td>{novel.Title || '무제'}</td>
-            <td>{novel.Author}</td>
+            <td><Link href={'/novel/' + novel.ID}>{novel.Title || '무제'}</Link></td>
+            <td><Link href={'/user/' + novel.Author}>{novel.Author}</Link></td>
             <td>{novel.Likes.split(',').length}</td>
           </tr>
         ))}

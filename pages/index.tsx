@@ -19,7 +19,7 @@ export default function Home({ novels, success, error }: Props) {
     <div>
       <Head>
         <title>ilggo.ga - 온라인 소설 투고 사이트</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta httpEquiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
       </Head>
       <Container>
