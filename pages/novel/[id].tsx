@@ -1,5 +1,6 @@
 import Head from 'next/head'
-import { Alert, Container } from 'react-bootstrap'
+import Link from 'next/link'
+import { Alert, Container, Button } from 'react-bootstrap'
 
 import { NovelStruct } from '../../types/index'
 import NovelViewer from '../../components/NovelViewer'
@@ -25,6 +26,9 @@ export default function NovelView({ id, novel, success, error }: Props) {
       </Head>
       <Container>
         {novelViewer}
+        <Link href={'/edit/' + id}>
+          <Button variant="primary">수정하기</Button>
+        </Link>
       </Container>
     </div>
   )

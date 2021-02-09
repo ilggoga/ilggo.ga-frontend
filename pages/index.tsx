@@ -1,6 +1,7 @@
 import Head from 'next/head'
-import { Alert, Container } from 'react-bootstrap'
+import { Alert, Container, Button } from 'react-bootstrap'
 import NovelStats from '../components/NovelStats'
+import Link from 'next/link'
 import { NovelStruct } from '../types/index'
 
 interface Props {
@@ -28,6 +29,10 @@ export default function Home({ novels, success, error }: Props) {
         </Alert>
 
         {novelStats}
+
+        <Link href="/edit/">
+          <Button variant="primary">새 글쓰기</Button>
+        </Link>
       </Container>
     </div>
   )

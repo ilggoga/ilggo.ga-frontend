@@ -1,7 +1,7 @@
 import { NovelStruct } from '../types/index'
 import { Converter } from 'showdown'
 import moment from 'moment'
-import { escapeHtml } from '../utils'
+import xss from 'xss'
 
 interface Props {
   novel: NovelStruct
@@ -26,7 +26,7 @@ export default function NovelViewer ({ novel }: Props) {
 
   const flags = novel.Flags.split(',')
   if (!flags.includes('xss')) {
-    novel.Content = escapeHtml(novel.Content)
+    novel.Content = xss(novel.Content)
   }
 
   return (
