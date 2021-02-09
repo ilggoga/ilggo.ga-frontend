@@ -6,8 +6,8 @@ interface Props {
 }
 
 export default function NovelStats ({ novels }: Props) {
-  const recentNovels = novels.sort((a, b) => b.ID - a.ID).slice(0, 10)
-  const popularNovels = novels.sort((a, b) => b.Likes.split(',').length - a.Likes.split(',').length)
+  const recentNovels = novels.concat().sort((a, b) => b.ID - a.ID).slice(0, 9)
+  const popularNovels = novels.concat().sort((a, b) => b.Likes.split(',').length - a.Likes.split(',').length).slice(0, 9)
 
   return (
     <div>

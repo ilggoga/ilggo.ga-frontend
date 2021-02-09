@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import { useRouter } from 'next/router'
 import { Table } from "react-bootstrap"
 import { NovelStruct } from "../types"
 

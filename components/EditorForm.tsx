@@ -33,7 +33,7 @@ export default function EditorForm ({ novel, creation = false }: Props) {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + window.localStorage.getItem('token')
+        'Authorization': window.localStorage.getItem('token') || ''
       },
       body: JSON.stringify({
         title, flags, content

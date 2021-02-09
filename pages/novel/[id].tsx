@@ -21,7 +21,7 @@ export default function NovelView({ id, novel, success, error }: Props) {
     <div>
       <Head>
         <title>소설뷰어 #{id} - ilggo.ga</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta httpEquiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
       </Head>
       <Container>

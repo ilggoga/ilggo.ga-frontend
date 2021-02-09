@@ -12,7 +12,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': req.headers.authorization
+      'Authorization': 'Bearer ' + (req.headers.authorization || '')
     },
     body: JSON.stringify({ flags, content, title })
   })
