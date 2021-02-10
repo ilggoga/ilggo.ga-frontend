@@ -9,7 +9,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded'
       },
-      body: `response=${captcha}&secret=${process.env.hcaptcha}`
+      body: `response=${captcha}&secret=${process.env.HCAPTCHA_KEY}`
     }).then((res) => res.json())
     
     if (!captchaResp.success) {

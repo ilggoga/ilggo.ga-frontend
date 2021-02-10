@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { Alert, Container, Button } from 'react-bootstrap'
+import { Alert, Container } from 'react-bootstrap'
 import NovelStats from '../components/NovelStats'
 import HomeToolbar from '../components/HomeToolbar'
 import { NovelStruct } from '../types/index'
@@ -25,7 +25,7 @@ export default function Home({ novels, success, error }: Props) {
       </Head>
       <Container>
         <Alert variant="warning">
-          읽고가 프로토타입입니다 <code>/pages/</code>에서 수정을 시작하세요
+          읽고가 프로토타입입니다. 스타일 작업은 하나도 안했음 <code>/pages/</code>에서 수정을 시작하세요
         </Alert>
 
         {novelStats}
